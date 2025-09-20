@@ -1,0 +1,11 @@
+<div class="container">
+  @if (post) {
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.body }}</p>
+    <a [routerLink]="['/edit', post.id]">Edit Post</a>
+    <a routerLink="/">Back to List</a>
+  } @else {
+    <h2>Post not found</h2>
+    <a routerLink="/">Back to List</a>
+  }
+</div>

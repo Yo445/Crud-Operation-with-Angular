@@ -1,0 +1,14 @@
+<div class="container">
+  @if (post) {
+    <h2>Edit Post</h2>
+    <form>
+      <input type="text" [(ngModel)]="post.title" name="title" placeholder="Post Title" required>
+      <textarea [(ngModel)]="post.body" name="body" placeholder="Post Body" required></textarea>
+      <button (click)="updatePost()">Update Post</button>
+      <a routerLink="/">Cancel</a>
+    </form>
+  } @else {
+    <h2>Post not found</h2>
+    <a routerLink="/">Back to List</a>
+  }
+</div>

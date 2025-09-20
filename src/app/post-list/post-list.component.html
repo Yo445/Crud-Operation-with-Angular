@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>Blog Posts</h2>
+
+  <!-- Add Post Form -->
+  <div class="add-post">
+    <h3>Add New Post</h3>
+    <form>
+      <input type="text" [(ngModel)]="newPost.title" name="title" placeholder="Post Title" required>
+      <textarea [(ngModel)]="newPost.body" name="body" placeholder="Post Body" required></textarea>
+      <button (click)="addPost()">Add Post</button>
+    </form>
+  </div>
+
+  <!-- Post List -->
+  <div class="post-list">
+    <div *ngFor="let post of posts" class="post-card">
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.body | slice:0:100 }}...</p>
+      <div class="actions">
+        <a [routerLink]="['/post', post.id]">View</a>
+        <a [routerLink]="['/edit', post.id]">Edit</a>
+        <button (click)="deletePost(post.id)">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
